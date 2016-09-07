@@ -23,23 +23,13 @@ namespace Kestrel2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-            services.AddMvc(); // x => x.Filters.Add(new AuthorizeFilter(policy)));
-            services.AddSwaggerGen();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder application, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            //app.UseIdentity();
-            //loggerFactory
-              //  .AddConsole(Configuration.GetSection("Logging"))
-                //.AddDebug();
-            
-            application
-                .UseMvc()
-                .UseSwagger()
-                .UseSwaggerUi();
+            app.UseMvc();
         }
     }
 }
